@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="كلية التعليم عن بعد - جامعة سيئون"
+    />
+    <title>كلية التعليم عن بعد | جامعة سيئون</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #071829;
+        color: #fff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        min-height: 100svh;
+        margin: 0;
+        background: #071829;
+      }
+
+      .landing {
+        position: relative;
+        display: flex;
+        min-height: 100vh;
+        min-height: 100svh;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 2rem;
+        isolation: isolate;
+        background: #071829;
+      }
+
+      .backdrop,
+      .backdrop::before,
+      .backdrop::after {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .backdrop {
+        z-index: -2;
+        overflow: hidden;
+      }
+
+      .backdrop::before {
+        content: "";
+        inset: -1rem;
+        background: url("SORS/SharedSqqqqqqqqqqqqqqqcreenshot.jpg") center 44% /
+          cover no-repeat;
+        filter: blur(5px) brightness(0.7);
+        transform: scale(1.04);
+      }
+
+      .backdrop::after {
+        z-index: 1;
+        content: "";
+        background:
+          radial-gradient(
+            circle at 50% 42%,
+            rgb(0 110 178 / 25%),
+            transparent 58%
+          ),
+          radial-gradient(
+            ellipse at 20% 90%,
+            rgb(14 57 129 / 35%),
+            transparent 65%
+          ),
+          linear-gradient(
+            180deg,
+            rgb(7 24 41 / 93%),
+            rgb(7 24 41 / 82%) 46%,
+            rgb(7 24 41 / 94%)
+          );
+      }
+
+      .status {
+        position: relative;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        align-self: flex-start;
+        padding: 0.5rem 0.8rem;
+        border: 1px solid rgb(255 255 255 / 15%);
+        border-radius: 999px;
+        background: rgb(255 255 255 / 10%);
+        box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+        color: rgb(255 255 255 / 92%);
+        font-size: 0.75rem;
+        font-weight: 600;
+        backdrop-filter: blur(12px);
+      }
+
+      .status-dot {
+        position: relative;
+        width: 0.5rem;
+        height: 0.5rem;
+        flex: none;
+        border-radius: 50%;
+        background: #10b981;
+      }
+
+      .status-dot::after {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: #34d399;
+        content: "";
+        animation: pulse 1.8s ease-out infinite;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+        width: min(100%, 34rem);
+        margin: auto;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .logo-wrap {
+        position: relative;
+        display: grid;
+        width: 9rem;
+        height: 9rem;
+        margin: 0 auto 1.5rem;
+        place-items: center;
+        border: 4px solid rgb(255 255 255 / 20%);
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 20px 50px rgb(0 110 178 / 35%);
+        transition: transform 500ms ease;
+      }
+
+      .logo-wrap::before {
+        position: absolute;
+        z-index: -1;
+        inset: -1.25rem;
+        border-radius: inherit;
+        background: rgb(0 110 178 / 30%);
+        content: "";
+        filter: blur(24px);
+      }
+
+      .logo-wrap:hover {
+        transform: scale(1.05);
+      }
+
+      .logo {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .system-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 0.55rem;
+        padding: 0.35rem 0.7rem;
+        border: 1px solid rgb(255 255 255 / 15%);
+        border-radius: 0.75rem;
+        background: rgb(255 255 255 / 8%);
+        color: #38bdf8;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .system-label svg {
+        width: 1rem;
+        height: 1rem;
+        flex: none;
+      }
+
+      h1 {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(1.65rem, 5vw, 2rem);
+        font-weight: 900;
+        letter-spacing: -0.035em;
+        line-height: 1.4;
+      }
+
+      .description {
+        margin: 0.55rem 0 0;
+        padding: 0 0.5rem;
+        color: rgb(226 232 240 / 90%);
+        font-size: clamp(0.82rem, 2.4vw, 0.95rem);
+        font-weight: 500;
+        line-height: 1.9;
+      }
+
+      .review-message {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        width: min(100%, 26rem);
+        margin: 1.5rem auto 0;
+        padding: 0.85rem 1.25rem;
+        border: 2px solid rgb(251 191 36 / 55%);
+        border-radius: 1rem;
+        background: linear-gradient(
+          135deg,
+          rgb(120 53 15 / 92%),
+          rgb(69 26 3 / 96%)
+        );
+        box-shadow:
+          0 12px 35px rgb(0 0 0 / 28%),
+          inset 0 1px rgb(254 240 138 / 22%);
+        color: #fff7ed;
+        font-size: clamp(1.15rem, 3vw, 1.4rem);
+        font-weight: 900;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .review-message svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        flex: none;
+        color: #fde68a;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.75;
+          transform: scale(1);
+        }
+
+        100% {
+          opacity: 0;
+          transform: scale(2.4);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .landing {
+          padding: 1.25rem;
+        }
+
+        .logo-wrap {
+          width: 8rem;
+          height: 8rem;
+        }
+
+        .review-message {
+          width: 100%;
+          padding: 0.75rem 0.8rem;
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="landing">
+      <div class="backdrop" aria-hidden="true"></div>
+      <header class="status" aria-label="حالة النظام">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>النظام متصل 2026</span>
+      </header>
+
+      <section class="content" aria-labelledby="page-title">
+        <div class="logo-wrap">
+          <img
+            class="logo"
+            src="assets/university-logo.png"
+            alt="شعار كلية التعليم عن بعد - جامعة سيئون"
+            width="140"
+            height="140"
+          />
+        </div>
+        <div>
+          <span class="system-label">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H20v15H5.5A2.5 2.5 0 0 0 3 20.5z" />
+              <path d="M3 5.5v15M7 7h9M7 11h6" />
+            </svg>
+            <span>نظام إدارة التعلم الذكي LMS</span>
+          </span>
+          <h1 id="page-title">كلية التعليم عن بعد</h1>
+        </div>
+        <p class="description">
+          بيئة تعليمية تفاعلية متكاملة تتيح لك مواصلة دراستك الأكاديمية بمرونة
+          وكفاءة عالية أينما كنت.
+        </p>
+        <p class="review-message" role="alert" aria-live="assertive">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M10.3 3.7 2.6 17a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.7a2 2 0 0 0-3.4 0Z" />
+            <path d="M12 9v4M12 17h.01" />
+          </svg>
+          <span>هذا المحتوى تحت المراجعة</span>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
